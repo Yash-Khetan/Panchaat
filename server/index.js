@@ -15,8 +15,9 @@ const io =  new Server(server,{
 io.on("connection", (socket) => {
     console.log("user connected with id", socket.id);
     socket.on("sendmessage", (msg)=> {
-        socket.broadcast(msg); 
-        console.log("messaging with the text", msg); 
+        // 
+        socket.broadcast.emit("rmessage",msg); 
+        // console.log("messaging with the text", msg); 
     })
     socket.on("disconnect", () => {
         console.log("user left with id: ",socket.id)
